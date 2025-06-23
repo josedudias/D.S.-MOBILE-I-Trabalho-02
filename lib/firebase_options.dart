@@ -50,24 +50,24 @@ class DefaultFirebaseOptions {
     apiKey: 'AIzaSyC5-XgU9boFaZXl9WA_TqqXDZqu9FRu-u0',
     appId: '1:1035807106026:android:4a87df7f561312635ac893',
     messagingSenderId: '1035807106026',
-    projectId: 'pokedexds-mobile-i-trabalho-01',
-    storageBucket: 'pokedexds-mobile-i-trabalho-01.firebasestorage.app',
+    projectId: 'gamehub-mobile-project',
+    storageBucket: 'gamehub-mobile-project.firebasestorage.app',
   );
 
   static const FirebaseOptions ios = FirebaseOptions(
     apiKey: 'AIzaSyD2UVXFHNhbUnJOinHuv_XSf3Pg7JjQVPY',
     appId: '1:1035807106026:ios:2de0c3c02716221e5ac893',
     messagingSenderId: '1035807106026',
-    projectId: 'pokedexds-mobile-i-trabalho-01',
-    storageBucket: 'pokedexds-mobile-i-trabalho-01.firebasestorage.app',
-    iosBundleId: 'com.example.pokedex',
+    projectId: 'gamehub-mobile-project',
+    storageBucket: 'gamehub-mobile-project.firebasestorage.app',
+    iosBundleId: 'com.gamehub.app',
   );
 
   static const FirebaseOptions web = FirebaseOptions(
     apiKey: "AIzaSyCTQSjOZ-yX-00rtOZRnUZQMN64SZK2vjE",
-    authDomain: "pokedexds-mobile-i-trabalho-01.firebaseapp.com",
-    projectId: "pokedexds-mobile-i-trabalho-01",
-    storageBucket: "pokedexds-mobile-i-trabalho-01.firebasestorage.app",
+    authDomain: "gamehub-mobile-project.firebaseapp.com",
+    projectId: "gamehub-mobile-project",
+    storageBucket: "gamehub-mobile-project.firebasestorage.app",
     messagingSenderId: "1035807106026",
     appId: "1:1035807106026:web:712065aabfd5d2c75ac893",
   );
