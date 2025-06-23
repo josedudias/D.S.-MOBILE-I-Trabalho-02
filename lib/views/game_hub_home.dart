@@ -191,8 +191,7 @@ class _GameHubHomeState extends State<GameHubHome> {
       ),
       itemCount: games.length,
       itemBuilder: (context, index) {
-        final game = games[index];
-        return GameGridItem(
+        final game = games[index];        return GameGridItem(
           key: ValueKey(game.id),
           game: game,
           viewModel: viewModel,
@@ -436,8 +435,7 @@ class GameGridItem extends StatelessWidget {
   Color _getGenreColor(String genreSlug) {
     return genreColors[genreSlug.toLowerCase()] ?? Colors.grey;
   }
-
-  Widget _buildGameCard() {
+  Widget _buildGameCard(BuildContext context) {
     final primaryGenre = game.genres.isNotEmpty ? game.genres[0].slug : 'indie';
     final cardColor = _getGenreColor(primaryGenre ?? 'indie').withValues(alpha: 0.2);
     final imageUrl = game.backgroundImage ?? '';
@@ -576,10 +574,9 @@ class GameGridItem extends StatelessWidget {
       ),
     );
   }
-
   @override
   Widget build(BuildContext context) {
-    return _buildGameCard();
+    return _buildGameCard(context);
   }
 }
 

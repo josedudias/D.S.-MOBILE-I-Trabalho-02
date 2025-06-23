@@ -44,7 +44,6 @@ class _GameDetailsState extends State<GameDetails> {
       });
     }
   }
-
   Future<void> _toggleFavorite() async {
     if (game == null) return;
 
@@ -61,38 +60,43 @@ class _GameDetailsState extends State<GameDetails> {
         isFavorite = !isFavorite;
       });
 
-      ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(
-          content: Text(
-            isFavorite 
-              ? 'Jogo adicionado aos favoritos!' 
-              : 'Jogo removido dos favoritos!',
+      if (mounted) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(
+            content: Text(
+              isFavorite 
+                ? 'Jogo adicionado aos favoritos!' 
+                : 'Jogo removido dos favoritos!',
+            ),
+            backgroundColor: Colors.deepPurple,
           ),
-          backgroundColor: Colors.deepPurple,
-        ),
-      );
+        );
+      }
     } catch (e) {
-      ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(
-          content: Text('Erro ao atualizar favoritos: $e'),
-          backgroundColor: Colors.red,
-        ),
-      );
+      if (mounted) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(
+            content: Text('Erro ao atualizar favoritos: $e'),
+            backgroundColor: Colors.red,
+          ),
+        );
+      }
     }
   }
-
   Future<void> _openWebsite() async {
     if (game?.website != null && game!.website!.isNotEmpty) {
       final uri = Uri.parse(game!.website!);
       if (await canLaunchUrl(uri)) {
         await launchUrl(uri);
       } else {
-        ScaffoldMessenger.of(context).showSnackBar(
-          const SnackBar(
-            content: Text('Não foi possível abrir o site'),
-            backgroundColor: Colors.red,
-          ),
-        );
+        if (mounted) {
+          ScaffoldMessenger.of(context).showSnackBar(
+            const SnackBar(
+              content: Text('Não foi possível abrir o site'),
+              backgroundColor: Colors.red,
+            ),
+          );
+        }
       }
     }
   }

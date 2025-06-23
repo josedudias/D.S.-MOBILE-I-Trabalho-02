@@ -44,6 +44,7 @@ dependencies:
   audioplayers: ^6.4.0
   flutter_native_splash: ^2.4.6
   shared_preferences: ^2.2.2
+  url_launcher: ^6.3.0
 
   # Firebase
   firebase_core: ^2.32.0
