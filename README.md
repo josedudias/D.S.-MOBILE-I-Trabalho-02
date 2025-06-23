@@ -12,6 +12,7 @@ Uma aplicação móvel desenvolvida com Flutter para descobrir e gerenciar jogos
 
 ## 🚀 Como executar o projeto
 
+- Flutter WEB - https://d-s-mobile-i-trabalho-02.vercel.app/
 ### Pré-requisitos
 
 - Flutter SDK instalado ([Guia oficial de instalação](https://docs.flutter.dev/get-started/install))
