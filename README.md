@@ -24,8 +24,8 @@ Uma aplicação móvel desenvolvida com Flutter para descobrir e gerenciar jogos
 1. **Clone o repositório:**
 
 ```bash
-git clone https://github.com/josedudidas/D.S.-MOBILE-I-Trabalho-01.git
-cd D.S.-MOBILE-I-Trabalho-01-main
+git clone https://github.com/josedudidas/D.S.-MOBILE-I-Trabalho-02.git
+cd D.S.-MOBILE-I-Trabalho-02-main
 ```
 
 2. **Instale as dependências:**
