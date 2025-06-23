@@ -66,4 +66,13 @@ class DefaultFirebaseOptions {
     iosBundleId: 'com.example.pokedex',
   );
 
+  static const FirebaseOptions web = FirebaseOptions(
+    apiKey: "AIzaSyCTQSjOZ-yX-00rtOZRnUZQMN64SZK2vjE",
+    authDomain: "pokedexds-mobile-i-trabalho-01.firebaseapp.com",
+    projectId: "pokedexds-mobile-i-trabalho-01",
+    storageBucket: "pokedexds-mobile-i-trabalho-01.firebasestorage.app",
+    messagingSenderId: "1035807106026",
+    appId: "1:1035807106026:web:712065aabfd5d2c75ac893"
+  );
+
 }
