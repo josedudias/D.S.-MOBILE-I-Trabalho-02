@@ -1,0 +1,90 @@
+name: Flutter Build and Release
+
+on:
+  push:
+    branches: [ "main" ]
+    tags:
+      - "v*.*.*"  # Trigger on version tags like v1.2.3
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  # Keep the existing build job for regular branch pushes and PRs
+  build:
+    runs-on: ubuntu-latest
+    if: ${{ !startsWith(github.ref, 'refs/tags/') }}
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Flutter
+        uses: subosito/flutter-action@v2
+        with:
+          flutter-version: '3.29.3'
+          channel: 'stable'
+          cache: true
+      
+      - name: Setup Dart SDK
+        uses: dart-lang/setup-dart@9a04e6d73cca37bd455e0608d7e5092f881fd603
+
+      - name: Install dependencies
+        run: dart pub get
+
+      - name: Verify formatting
+        run: dart format --output=none --set-exit-if-changed .
+
+      - name: Analyze project source
+        run: dart analyze
+
+  # New release job that builds and publishes APK when a tag is pushed
+  release:
+    name: Build and Release APK
+    runs-on: ubuntu-latest
+    if: startsWith(github.ref, 'refs/tags/')
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0  # Fetches all history for all tags and branches
+      
+      - name: Extract tag name
+        id: tag
+        run: echo "VERSION=${GITHUB_REF#refs/tags/}" >> $GITHUB_OUTPUT
+      
+      - name: Setup Java
+        uses: actions/setup-java@v3
+        with:
+          distribution: 'zulu'
+          java-version: '17'  # Flutter requires JDK 17 or newer
+
+      - name: Setup Flutter
+        uses: subosito/flutter-action@v2
+        with:
+          flutter-version: '3.29.3'
+          channel: 'stable'
+          cache: true
+
+      - name: Get Flutter dependencies
+        run: flutter pub get
+      
+      - name: Build APK
+        run: flutter build apk --release
+      
+      - name: Create Release
+        id: create_release
+        uses: softprops/action-gh-release@v1
+        with:
+          name: Release ${{ steps.tag.outputs.VERSION }}
+          tag_name: ${{ steps.tag.outputs.VERSION }}
+          draft: false
+          prerelease: false
+          files: |
+            build/app/outputs/apk/release/Pokédex-1.0.0-1-release.apk
+          body: |
+            Release ${{ steps.tag.outputs.VERSION }}
+            
+            Changes in this release:
+            - Please check the commit history for details
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

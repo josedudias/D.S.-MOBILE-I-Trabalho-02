@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "1035807106026",
+    "project_id": "pokedexds-mobile-i-trabalho-01",
+    "storage_bucket": "pokedexds-mobile-i-trabalho-01.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1035807106026:android:4a87df7f561312635ac893",
+        "android_client_info": {
+          "package_name": "com.example.pokedex"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC5-XgU9boFaZXl9WA_TqqXDZqu9FRu-u0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1035807106026:android:9111854e5d6fe8a65ac893",
+        "android_client_info": {
+          "package_name": "com.josedudias.pokedex"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC5-XgU9boFaZXl9WA_TqqXDZqu9FRu-u0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
