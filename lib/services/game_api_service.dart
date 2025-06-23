@@ -4,7 +4,7 @@ import 'package:gamehub/models/game.dart';
 
 class GameApiService {
   static const String _baseUrl = 'https://api.rawg.io/api';
-  static const String _apiKey = '66e59b5c5a8b40fbb3e31651e8e3b0e8'; // API key pública do RAWG
+  static const String _apiKey = '29dee52089b846e6a4d27c6516219515'; // API key pública do RAWG
 
   Future<List<Game>> getGames({
     int page = 1,
